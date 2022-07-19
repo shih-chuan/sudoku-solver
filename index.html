@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sudoku Solver</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="./favicon.ico" sizes="any">
+        <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="./style.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar fixed-top bg-primary shadow-lg">
+            <div class="container justify-content-center">
+                <span class="navbar-brand mb-0 h1 text-white fw-bold">Sudoku Solver</span>
+            </div>
+        </nav>
+        <section id="stage">
+            <div id="processing-stage" class="processing-area hide">
+                <div id="processing-image" class="processing-image">
+                    <img id="src-image" width="300" src="" alt="" />
+                    <div class='scanner'></div>
+                </div>
+            </div>
+            <div id="result-stage" class="result-area hide">
+                <h3 id="result-msg">Success</h3>
+                <canvas id="canvas"></canvas>
+                <button id="try-again" type="button" class="btn btn-primary mt-2">Try Again</button>
+            </div>
+            <div id="welcome-stage" class="drag-area">
+                <button id="file-upload-btn" class="button-no-style">
+                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <header>Upload Image</header>
+                </button>
+                <span>or try with default images</span>
+                <div class="img-container d-flex justify-content-center align-items-center mt-3">
+                    <button class="img-block button-no-style">
+                        <img src="assets/images/1.jpg" />
+                    </button>
+                    <button class="img-block button-no-style">
+                        <img src="assets/images/2.jpg" />
+                    </button>
+                    <button class="img-block button-no-style">
+                        <img src="assets/images/3.jpg" />
+                    </button>
+                </div>
+                <input type="file" id="file-upload-input" hidden/>
+            </div>
+            <div id="loading-screen" class="loading bg-light">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="container p-2">
+                <div class="mb-0 small text-center fw-bold align-content-center text-black-50">
+                    Made with <i class="fa-solid fa-heart text-danger"></i> by <a href="https://cchuan.one/">cchuan</a> 
+                </div>
+            </div>
+        </footer>
+        <script defer id="opencv" src="https://docs.opencv.org/4.6.0/opencv.js" async type="text/javascript"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+        <script defer src="./script.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    </body>
+</html>

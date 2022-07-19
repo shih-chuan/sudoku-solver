@@ -1,0 +1,163 @@
+.button-no-style, input[type="button"], input[type="submit"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+footer {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 10px;
+}
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+canvas {
+    max-width: 85vw;
+    background-image: url("assets/images/empty.svg");
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+
+#processing-stage, #result-stage, #welcome-stage {
+    position: absolute;
+    transition: 0.2s;
+    max-width: 100%;
+}
+.img-block {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin: 0 8px;
+    overflow: hidden;
+}
+
+.img-block:hover img{
+    transform: scale(1.2);
+}
+
+.img-block img{
+    width: 100%;
+    object-fit: cover;
+    transition: 0.2s;
+}
+.drag-area {
+    height: 500px;
+    width: 700px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 1;
+    position: absolute;
+    transition: 0.2s;
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.drag-area.active {
+    border: 2px solid blue;
+}
+
+.drag-area .icon {
+    font-size: 100px;
+}
+
+.drag-area header {
+    user-select: none;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.drag-area img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* object-fit: contain; */
+    border-radius: 5px;
+}
+
+#loading-screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#result-stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.processing-image {
+    position: relative;
+    width: 400px;
+    max-width: 85vw;
+}
+
+.processing-image img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* animated laser beam */
+.scanner {
+	width: 100%;
+	height: 3px;
+	background-color: red;
+    opacity: 0.7;
+    position: absolute;
+    box-shadow: 0px 0px 8px 10px rgba(170, 11, 23, 0.49);
+    top:50%;
+    animation-name: scan;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scan {
+    0% {
+        box-shadow: 0px 0px 8px 10px rgba(170, 11, 23, 0.49);
+        top: 50%;
+    }  
+    25% {
+        box-shadow: 0px 6px 8px 10px rgba(170, 11, 23, 0.49);
+        top: 5px;
+    }
+    75% {
+        box-shadow: 0px -6px 8px 10px rgba(170, 11, 23, 0.49);
+        top: 98%;
+    }
+}
